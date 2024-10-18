@@ -17,27 +17,6 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Infrastructure", "Infrastru
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Test", "Test\Test.csproj", "{5E729EEF-CD3A-4082-B0AF-EEBBC529EF72}"
 EndProject
-Project("{E24C65DC-7377-472B-9ABA-BC803B73C61A}") = "angular", "angular\", "{6CAD567F-E933-495B-9A06-9E3A2865AD51}"
-	ProjectSection(WebsiteProperties) = preProject
-		TargetFrameworkMoniker = ".NETFramework,Version%3Dv4.8"
-		Debug.AspNetCompiler.VirtualPath = "/localhost_55518"
-		Debug.AspNetCompiler.PhysicalPath = "angular\"
-		Debug.AspNetCompiler.TargetPath = "PrecompiledWeb\localhost_55518\"
-		Debug.AspNetCompiler.Updateable = "true"
-		Debug.AspNetCompiler.ForceOverwrite = "true"
-		Debug.AspNetCompiler.FixedNames = "false"
-		Debug.AspNetCompiler.Debug = "True"
-		Release.AspNetCompiler.VirtualPath = "/localhost_55518"
-		Release.AspNetCompiler.PhysicalPath = "angular\"
-		Release.AspNetCompiler.TargetPath = "PrecompiledWeb\localhost_55518\"
-		Release.AspNetCompiler.Updateable = "true"
-		Release.AspNetCompiler.ForceOverwrite = "true"
-		Release.AspNetCompiler.FixedNames = "false"
-		Release.AspNetCompiler.Debug = "False"
-		VWDPort = "55518"
-		SlnRelativePath = "angular\"
-	EndProjectSection
-EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -172,26 +151,6 @@ Global
 		{5E729EEF-CD3A-4082-B0AF-EEBBC529EF72}.Release|x64.Build.0 = Release|Any CPU
 		{5E729EEF-CD3A-4082-B0AF-EEBBC529EF72}.Release|x86.ActiveCfg = Release|Any CPU
 		{5E729EEF-CD3A-4082-B0AF-EEBBC529EF72}.Release|x86.Build.0 = Release|Any CPU
-		{6CAD567F-E933-495B-9A06-9E3A2865AD51}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{6CAD567F-E933-495B-9A06-9E3A2865AD51}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{6CAD567F-E933-495B-9A06-9E3A2865AD51}.Debug|ARM.ActiveCfg = Debug|Any CPU
-		{6CAD567F-E933-495B-9A06-9E3A2865AD51}.Debug|ARM.Build.0 = Debug|Any CPU
-		{6CAD567F-E933-495B-9A06-9E3A2865AD51}.Debug|ARM64.ActiveCfg = Debug|Any CPU
-		{6CAD567F-E933-495B-9A06-9E3A2865AD51}.Debug|ARM64.Build.0 = Debug|Any CPU
-		{6CAD567F-E933-495B-9A06-9E3A2865AD51}.Debug|x64.ActiveCfg = Debug|Any CPU
-		{6CAD567F-E933-495B-9A06-9E3A2865AD51}.Debug|x64.Build.0 = Debug|Any CPU
-		{6CAD567F-E933-495B-9A06-9E3A2865AD51}.Debug|x86.ActiveCfg = Debug|Any CPU
-		{6CAD567F-E933-495B-9A06-9E3A2865AD51}.Debug|x86.Build.0 = Debug|Any CPU
-		{6CAD567F-E933-495B-9A06-9E3A2865AD51}.Release|Any CPU.ActiveCfg = Debug|Any CPU
-		{6CAD567F-E933-495B-9A06-9E3A2865AD51}.Release|Any CPU.Build.0 = Debug|Any CPU
-		{6CAD567F-E933-495B-9A06-9E3A2865AD51}.Release|ARM.ActiveCfg = Debug|Any CPU
-		{6CAD567F-E933-495B-9A06-9E3A2865AD51}.Release|ARM.Build.0 = Debug|Any CPU
-		{6CAD567F-E933-495B-9A06-9E3A2865AD51}.Release|ARM64.ActiveCfg = Debug|Any CPU
-		{6CAD567F-E933-495B-9A06-9E3A2865AD51}.Release|ARM64.Build.0 = Debug|Any CPU
-		{6CAD567F-E933-495B-9A06-9E3A2865AD51}.Release|x64.ActiveCfg = Debug|Any CPU
-		{6CAD567F-E933-495B-9A06-9E3A2865AD51}.Release|x64.Build.0 = Debug|Any CPU
-		{6CAD567F-E933-495B-9A06-9E3A2865AD51}.Release|x86.ActiveCfg = Debug|Any CPU
-		{6CAD567F-E933-495B-9A06-9E3A2865AD51}.Release|x86.Build.0 = Debug|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
