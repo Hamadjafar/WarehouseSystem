@@ -1,0 +1,69 @@
+<div class="container mt-5">
+    <h2 class="mb-4 text-center">Create New Warehouse</h2>
+    
+    <form (ngSubmit)="onSubmit()" #warehouseForm="ngForm" class="p-4 shadow rounded bg-light">
+        <div class="form-group mb-3">
+            <label for="name" class="form-label">Warehouse Name</label>
+            <input type="text" class="form-control" id="name" [(ngModel)]="warehouse.name" name="name" required placeholder="Enter warehouse name" />
+        </div>
+
+        <div class="form-group mb-3">
+            <label for="address" class="form-label">Address</label>
+            <input type="text" class="form-control" id="address" [(ngModel)]="warehouse.address" name="address" required placeholder="Enter address" />
+        </div>
+
+        <div class="form-group mb-3">
+            <label for="city" class="form-label">City</label>
+            <input type="text" class="form-control" id="city" [(ngModel)]="warehouse.city" name="city" required placeholder="Enter city" />
+        </div>
+
+        <div class="form-group mb-3">
+            <label for="countryId" class="form-label">Country</label>
+            <select class="form-select" id="countryId" [(ngModel)]="warehouse.countryId" name="countryId" required>
+                <option value="" disabled selected>Select a country</option>
+                <option *ngFor="let country of countries" [value]="country.id">{{ country.name }}</option>
+            </select>
+        </div>
+
+        <div class="mb-4">
+            <h4>Warehouse Items</h4>
+
+            <div *ngFor="let item of warehouse.wareHouseItemsDto; let i = index" class="mb-3 border p-3 rounded">
+                <div class="d-flex justify-content-between align-items-center">
+                    <h5>Item {{ i + 1 }}</h5>
+                    <button class="btn btn-link" type="button" data-bs-toggle="collapse" [attr.data-bs-target]="'#collapseItem' + i" aria-expanded="collapseStates[i]" aria-controls="'collapseItem' + i" (click)="toggleCollapse(i)">
+                        <i class="bi" [ngClass]="collapseStates[i] ? 'bi-caret-up-fill' : 'bi-caret-down-fill'"></i>
+                    </button>
+                </div>
+                <div class="collapse" [attr.id]="'collapseItem' + i">
+                    <div class="form-group mb-2">
+                        <label for="itemName" class="form-label">Item Name</label>
+                        <input type="text" class="form-control" id="itemName" [(ngModel)]="item.itemName" name="itemName{{i}}" placeholder="Enter item name" required />
+                    </div>
+                    <div class="form-group mb-2">
+                        <label for="skuCode" class="form-label">SKU Code</label>
+                        <input type="text" class="form-control" id="skuCode" [(ngModel)]="item.skuCode" name="skuCode{{i}}" placeholder="Enter SKU code" required />
+                    </div>
+                    <div class="form-group mb-2">
+                        <label for="qty" class="form-label">Quantity</label>
+                        <input type="number" class="form-control" id="qty" [(ngModel)]="item.qty" name="qty{{i}}" min="1" placeholder="Enter quantity" required />
+                    </div>
+                    <div class="form-group mb-2">
+                        <label for="costPrice" class="form-label">Cost Price</label>
+                        <input type="number" class="form-control" id="costPrice" [(ngModel)]="item.costPrice" name="costPrice{{i}}" placeholder="Enter cost price" required />
+                    </div>
+                    <div class="form-group mb-2">
+                        <label for="msrpPrice" class="form-label">MSRP Price</label>
+                        <input type="number" class="form-control" id="msrpPrice" [(ngModel)]="item.msrpPrice" name="msrpPrice{{i}}" placeholder="Enter MSRP price" />
+                    </div>
+                    <button type="button" class="btn btn-danger" (click)="removeItem(i)">Remove Item</button>
+                </div>
+            </div>
+
+            <button type="button" class="btn btn-secondary mt-2" (click)="addItem()">Add New Item</button>
+        </div>
+
+        <button type="submit" class="btn btn-primary w-100">Create Warehouse</button>
+    </form>
+</div>
+<loader [isLoading]="isLoading"></loader>

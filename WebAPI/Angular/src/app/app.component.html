@@ -1,0 +1,47 @@
+<div class="container-fluid">
+    <div class="row">
+        <!-- Sidebar -->
+        <nav class="col-md-3 col-lg-2 d-md-block bg-light sidebar" *ngIf="_authService.isLoggedIn()">
+            <div class="position-sticky">
+                <h4 class="mt-4">Welcome</h4>
+                <ul class="nav flex-column">
+                    <li class="nav-item">
+                        <a class="nav-link active" (click)="navigateTo('/Home')" aria-current="page">
+                            <i class="bi bi-house-door"></i> Home
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" (click)="navigateTo('/warehouse-list')">
+                            <i class="bi bi-archive"></i> Warehouse
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" (click)="navigateTo('/dashboard')">
+                            <i class="bi bi-speedometer2"></i> Dashboard
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" (click)="navigateTo('/users')">
+                            <i class="bi bi-person"></i> Users
+                        </a>
+                    </li>
+                    <li class="nav-item" *ngIf="_authService.getRole()==adminRole">
+                        <a class="nav-link" (click)="navigateTo('/logs')">
+                            <i class="bi bi-file-earmark-text"></i> Logs
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" (click)="logout()">
+                            <i class="bi bi-door-closed"></i> Logout
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+
+        <main class="col-md-9 ms-sm-auto col-lg-10 px-4">
+            <router-outlet></router-outlet>
+            <notification></notification>
+        </main>
+    </div>
+</div>

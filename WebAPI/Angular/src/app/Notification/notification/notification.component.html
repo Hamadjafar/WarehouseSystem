@@ -1,0 +1,4 @@
+<div *ngIf="notification" class="notification-alert alert alert-{{notification.type}} alert-dismissible fade show" role="alert">
+  {{ notification.message }}
+  <button type="button" class="btn-close" (click)="close()"></button>
+</div>

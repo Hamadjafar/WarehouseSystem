@@ -1,0 +1,41 @@
+<div class="container mt-5">
+    <div class="form-container">
+        <h2 class="form-title">{{ isEditMode ? 'Edit User' : 'Create User' }}</h2>
+        <form id="userForm" (ngSubmit)="createOrUpdateUser()" novalidate>
+            <div class="form-group">
+                <label for="email" class="required">Email</label>
+                <input type="email" class="form-control" id="email" [(ngModel)]="userDto.email" name="email"
+                    required>
+                <div class="invalid-feedback">Please provide a valid email.</div>
+            </div>
+
+            <div class="form-group">
+                <label for="fullName" class="required">Full Name</label>
+                <input type="text" class="form-control" id="fullName" [(ngModel)]="userDto.name" name="name"
+                    required>
+                <div class="invalid-feedback">Please enter your full name.</div>
+            </div>
+
+            <div class="form-group">
+                <label for="roleId" class="required">Roles</label>
+                <select class="form-select" id="roleId" [(ngModel)]="userDto.roleId" name="roleId" required>
+                    <option value="" disabled selected>Select a role</option>
+                    <option *ngFor="let role of roles" [value]="role.id">{{ role.name }}</option>
+                </select>
+                <div class="invalid-feedback">Please select a role.</div>
+            </div>
+
+            <div class="form-group">
+                <label for="active" class="required">Active</label>
+                <select class="form-control" id="active" (change)="onActiveChange($event)" [(ngModel)]="userDto.isActive" name="isActive" required>
+                    <option value="" disabled selected>Select status</option>
+                    <option [value]="true">Yes</option>
+                    <option [value]="false">No</option>
+                </select>
+                <div class="invalid-feedback">Please select active status.</div>
+            </div>
+
+            <button type="submit" class="btn btn-primary btn-block">Save</button>
+        </form>
+    </div>
+</div>

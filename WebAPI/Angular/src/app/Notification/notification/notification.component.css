@@ -1,0 +1,35 @@
+.notification-alert {
+    position: fixed; 
+    top: 20px; 
+    left: 50%; 
+    transform: translateX(-50%); 
+    z-index: 1060;
+    width: 90%; 
+    max-width: 600px; 
+    border-radius: 0.5rem;
+    transition: all 0.3s ease-in-out; 
+    
+  }
+  
+  .notification-alert .alert {
+    margin: 0; 
+    padding: 15px; 
+  }
+  
+  .notification-alert.success {
+    background-color: #d4edda; 
+    color: #155724; 
+  }
+  
+  .notification-alert.error {
+    background-color: #f8d7da; 
+    color: #721c24; 
+  }
+  
+  .notification-alert.warning {
+    background-color: #fff3cd; 
+    color: #856404; 
+  }
+  
+
+  

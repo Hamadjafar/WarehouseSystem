@@ -1,0 +1,15 @@
+.page-link{
+    cursor: pointer;
+}
+
+.action-icon {
+    cursor: pointer; 
+    color: #007bff; 
+    font-size: 1.5rem;
+    margin: 0 10px; 
+    transition: color 0.2s; 
+}
+
+.action-icon:hover {
+    color: #0056b3; 
+}

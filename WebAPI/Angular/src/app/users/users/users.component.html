@@ -1,0 +1,62 @@
+<div class="container mt-4">
+  <h2 class="text-primary mb-4">Users</h2>
+  <button class="btn btn-primary mb-3" (click)="navigateToCreateUserPage()">Create New User</button>
+  <div class="table-responsive">
+    <table class="table table-bordered rounded shadow table-hover">
+      <thead class="thead-light">
+          <tr>
+              <th>Email</th>
+              <th>Name</th>
+              <th>Role</th>
+              <th>Active</th>
+              <th>Actions</th>
+          </tr>
+      </thead>
+      <tbody>
+          <tr *ngFor="let user of usersOutputDto?.userDto" class="table-row">
+              <td>{{ user.email }}</td>
+              <td>{{ user.name }}</td>
+              <td>{{ user.role?.name }}</td>
+              <td>
+                  <ng-container *ngIf="user.isActive; else inactiveTemplate">
+                      <i class="bi bi-check-circle text-success" title="Active"></i>
+                  </ng-container>
+                  <ng-template #inactiveTemplate>
+                      <i class="bi bi-x-circle text-danger" title="Inactive"></i>
+                  </ng-template>
+              </td>
+              <td>
+                  <a title="Edit" class="text-warning me-2" (click)="editUser(user.id)">
+                      <i class="bi bi-pencil"></i>
+                  </a>
+                  <a title="Change Password" class="text-info me-2" data-bs-toggle="modal" data-bs-target="#changePasswordModal" (click)="openChangePasswordModal(user.id)">
+                      <i class="bi bi-key"></i>
+                  </a>
+                  <a *ngIf="user.role.name != adminRole" title="Delete" class="text-danger" (click)="deleteUser(user.id)">
+                      <i class="bi bi-trash"></i>
+                  </a>
+              </td>
+          </tr>
+      </tbody>
+  </table>
+  </div>
+
+  <nav aria-label="Page navigation" class="mt-3">
+    <ul class="pagination justify-content-center">
+      <li class="page-item" [class.disabled]="currentPage === 1">
+        <a class="page-link" (click)="changePage(currentPage - 1)">Previous</a>
+      </li>
+      <li class="page-item" *ngFor="let page of [].constructor(totalPages); let i = index">
+        <a class="page-link" (click)="changePage(i + 1)" [class.active]="currentPage === (i + 1)">
+          {{ i + 1 }}
+        </a>
+      </li>
+      <li class="page-item" [class.disabled]="currentPage === totalPages">
+        <a class="page-link" (click)="changePage(currentPage + 1)">Next</a>
+      </li>
+    </ul>
+  </nav>
+</div>
+
+<loader [isLoading]="isLoading"></loader>
+<change-password-modal #changePasswordModalComponent></change-password-modal>
