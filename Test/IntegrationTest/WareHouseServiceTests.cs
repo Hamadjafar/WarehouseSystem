@@ -19,7 +19,7 @@ namespace Test.IntegrationTest
 
         public WareHouseServiceTests()
         {
-           
+
             _repository = new WareHouseRepository(_dbContext, _mapper);
 
             _loggerMock = new Mock<ILogger<WareHouseService>>();

@@ -2,10 +2,8 @@
 using DataAccessLayer.IRepositories;
 using DataAccessLayer.Repositories;
 using DomainLayer.Dtos;
-using DomainLayer.Dtos.wareHousDto;
 using DomainLayer.Utilities;
 using FluentAssertions;
-using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Logging;
 using Moq;
 using Xunit;
@@ -94,7 +92,6 @@ namespace Test.IntegrationTest
                 IsActive = true,
             };
 
-            // First, create the user
             await _service.CreateOrUpdateUserAsync(userDto);
             var user = await _repository.GetUserByEmail(userDto.Email);
 
@@ -119,7 +116,6 @@ namespace Test.IntegrationTest
                 IsActive = true,
             };
 
-            // First, create the user
             await _service.CreateOrUpdateUserAsync(userDto);
             var user = await _repository.GetUserByEmail(userDto.Email);
 
@@ -134,7 +130,7 @@ namespace Test.IntegrationTest
 
             // Assert
             var updatedUser = await _repository.GetUserById(user.Id);
-            updatedUser.PasswordHash.Should().NotBe(user.PasswordHash); // Verify password has changed
+            updatedUser.PasswordHash.Should().NotBe(user.PasswordHash); 
         }
 
         [Fact]
@@ -177,11 +173,9 @@ namespace Test.IntegrationTest
 
             await _service.CreateOrUpdateUserAsync(userDto);
 
-            // Assert
-            var user = await _dbContext.Users.FirstOrDefaultAsync(w => w.Email == "testuser@example.com");
-
+            
             // Act
-            Func<Task> act = async () => await _service.CreateOrUpdateUserAsync(userDto);
+            Func<Task> act = async () => await _service.CreateOrUpdateUserAsync(userDto2);
 
             // Assert
             await act.Should().ThrowAsync<InvalidOperationException>()
