@@ -120,7 +120,7 @@ namespace Test.IntegrationTest
         }
 
         [Fact]
-        public async Task hould_Throw_Exception_When_Email_Does_Not_Exist()
+        public async Task Should_Throw_Exception_When_Email_Does_Not_Exist()
         {
             // Arrange
             var email = "nonexistent@example.com";
